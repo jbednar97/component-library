@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 210, 33%, 99%, 1;
+        --foreground: 235, 100%, 98%, 1;
+        --turquoise: 170, 67%, 54%;
+        --dark-blue: 241, 56%, 29%;
+        --surface: 237, 100%, 96%;
+        // Texts
+        --text-color: 241, 56%, 29%;
+        --uppy-text-color: 241, 56%, 29%;
+        // Borders
+        --radius: 0.5rem;
+        --default-border: 214, 71%, 24%;
+        --border-primary-btn: 214, 71%, 24%, 0.05;
+        --border-secondary-btn: 241, 55%, 24%;
+    }
+
+    .dark {
+        --background: 240, 15%, 13%, 1;
+        --foreground: 240, 22%, 26%, 1;
+        --surface: 240, 21%, 32%;
+        // Texts
+        --text-color: 0, 0%, 100%;
+        // Borders
+        --default-border: 0, 0%, 100%;
+        --border-primary-btn: 0, 0%, 100%, 0.12;
+        --border-secondary-btn: 170, 65%, 44%, 1;
+    }
+}
+
+@layer base {
+    body {
+        @apply bg-background text-textColor;
+        -webkit-text-size-adjust: none;
+    }
+}
