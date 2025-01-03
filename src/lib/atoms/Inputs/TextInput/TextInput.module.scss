@@ -1,0 +1,11 @@
+.input {
+    @apply px-3 text-sm font-medium border rounded-md;
+    @apply transition-colors duration-200;
+    &:active,
+    &:focus {
+        @apply outline-none;
+    }
+    &:disabled {
+        @apply bg-gray-100 text-gray-500 cursor-not-allowed;
+    }
+}

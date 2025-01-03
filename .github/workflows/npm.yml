@@ -1,0 +1,38 @@
+name: Library
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - package.json
+
+      # !!Remember!! to update this if you rename this file
+      #
+      - ".github/workflows/npm.yml"
+
+defaults:
+  run:
+    working-directory: ./
+jobs:
+  publish:
+    name: Publish NPM Package
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.13.0
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install packages
+        run: npm install
+
+      - name: Publish to npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}

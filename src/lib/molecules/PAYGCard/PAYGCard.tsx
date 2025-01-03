@@ -1,17 +1,20 @@
-import { Button } from "../Button/Button";
-import { Heading } from "../Heading/Heading";
-import { CheckmarkWithText } from "../CheckmarkWithText/CheckmarkWithText";
+import { Heading } from "../../atoms/Heading/Heading";
+import { Button } from "../../atoms/Button/Button";
+import { CheckmarkWithText } from "../../atoms/CheckmarkWithText/CheckmarkWithText";
 
-interface PAYGCardProps {}
+import { CurrencyCode } from "@/types/currency";
+import { getCurrencySymbolFromCode } from "@/utils/getCurrencySymbolFromCode";
+import { SubscriptionCardButton } from "@/types/subscriptionCardButton";
 
-const PAYGCard = ({}: PAYGCardProps) => {
-    const benefits = [
-        "Export up to 8K resolution",
-        "Chat/mail support",
-        "Images saved for 90 days",
-        "Core presets",
-        "API & Webhooks",
-    ];
+interface PAYGCardProps {
+    benefits: string[];
+    currency: CurrencyCode;
+    perImagePrice: number;
+    button: SubscriptionCardButton;
+}
+
+const PAYGCard = ({ benefits, perImagePrice, currency, button }: PAYGCardProps) => {
+    const { text, onClick } = button;
     return (
         <div
             className={
@@ -23,11 +26,11 @@ const PAYGCard = ({}: PAYGCardProps) => {
             </Heading>
             <p className="text-xs text-center mb-3">Enhance images whenever you need and pay as you go</p>
             <span className="block text-xl font-bold text-center w-full mb-3">
-                <span className="text-3xl">$0.99</span> / image
+                <span className="text-3xl">{getCurrencySymbolFromCode(currency) + perImagePrice}</span> / image
             </span>
             <div className="w-full flex justify-center items-center">
-                <Button variant={"default"} className="my-8" onClick={() => alert("Workingggg")}>
-                    Enter payment details
+                <Button variant={"default"} className="my-8" onClick={onClick}>
+                    {text}
                 </Button>
             </div>
             <div className="mt-8 w-full grid gap-1">

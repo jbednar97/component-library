@@ -1,0 +1,23 @@
+.wrapper {
+    @apply w-full relative;
+}
+
+.select {
+    @apply w-full border px-3 py-2 text-smPlus font-medium rounded-md cursor-pointer;
+    @apply focus-visible:ring-1 focus-visible:ring-turquoise focus-within:ring-offset-1 outline-none;
+    @apply desktop:hover:border-turquoise desktop:hover:border-opacity-50 transition-colors duration-200;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+}
+
+.wrapper::before {
+    content: "";
+    @apply w-2.5 h-2 bg-textColor absolute right-2 top-1/2 transform -translate-y-1/2 z-10 rotate-180;
+    clip-path: polygon(50% 0%, 0 100%, 100% 100%);
+}
+
+.label {
+    @apply text-smPlus font-bold pb-2 block;
+}

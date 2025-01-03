@@ -69,6 +69,7 @@ export default {
                 orderDetailMenuDark: "0px -4px 44px 0px rgba(0, 0, 0, 0.12)",
                 checkmark: "0px 1px 2px 0px #A4ACB966",
                 switch: "0px 1px 2px 0px #23217566",
+                cardImage: "0 16px 16px 0 rgba(164, 172, 187, 0.32)",
             },
             transitionDuration: {
                 400: "400ms",
